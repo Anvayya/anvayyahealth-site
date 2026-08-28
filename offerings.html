@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Offerings — Anvayya</title>
+<meta name="description" content="Your gut & metabolic health report, a nutritionist-led plan built on your biology, food matched to your plan, fitness guidance, progress tracking — and the Transform membership. All in one app." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { teal:'#1F4F4A', tealdeep:'#173B37', marigold:'#D88B3A', ivory:'#FBF6EE', ink:'#1A1A18' },
+      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], deva:['Tiro Devanagari Sanskrit','serif'], sans:['Inter','system-ui','sans-serif'] },
+    }}
+  }
+</script>
+<style>
+  html,body{ background:#FBF6EE; color:#1A1A18; -webkit-font-smoothing:antialiased; }
+  body{ font-family:'Inter',system-ui,sans-serif; }
+  .font-deva{ font-family:'Tiro Devanagari Sanskrit',serif; }
+  ::selection{ background:#D88B3A; color:#FBF6EE; }
+  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+  .card{ transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 22px 48px -28px rgba(23,59,55,.45); }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; height:1.5px; width:0; background:#D88B3A; transition:width .3s ease; }
+  .nav-link:hover::after, .nav-link.active::after{ width:100%; }
+  .nav-link.active{ color:#1F4F4A; }
+  .grain{ position:fixed; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:multiply; z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .mobile-nav{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .mobile-nav.open{ max-height:420px; }
+  .page-bg{ background:
+      radial-gradient(1000px 460px at 82% -10%, rgba(216,139,58,.09), transparent 60%),
+      radial-gradient(800px 500px at 5% 108%, rgba(31,79,74,.07), transparent 60%), #FBF6EE; }
+</style>
+</head>
+<body class="antialiased">
+<div class="grain"></div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header id="top" class="sticky top-0 z-40 backdrop-blur-md bg-ivory/85 border-b border-teal/10">
+  <div class="max-w-6xl mx-auto px-6 h-[68px] flex items-center justify-between">
+    <a class='flex items-center gap-2.5 group' href="index.html">
+      <span class="flex flex-col items-center leading-none">
+        <span class="font-deva text-teal text-3xl leading-none -mb-1">अ</span>
+        <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#1F4F4A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="font-serif text-teal text-2xl font-semibold tracking-tight">Anvayya</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[.83rem] font-medium text-teal/80">
+      <a class='nav-link' href="index.html">Home</a>
+      <a class='nav-link active' href="offerings.html">Offerings</a>
+      <a class='nav-link' href="plans.html">Plans</a>
+      <a class='nav-link' href="about.html">About</a>
+      <a class='nav-link' href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a class='hidden sm:inline-block rounded-full bg-marigold text-ivory text-[.82rem] font-semibold px-5 py-2.5 hover:bg-marigold/90 transition shadow-sm' href="contact.html">Get early access</a>
+      <button id="navToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-teal" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav md:hidden bg-ivory/95 backdrop-blur-md border-t border-teal/10">
+    <nav class="px-6 py-4 flex flex-col gap-4 text-sm font-medium text-teal/85">
+      <a href="index.html">Home</a>
+      <a class='text-teal font-semibold' href="offerings.html">Offerings</a>
+      <a href="plans.html">Plans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class='rounded-full bg-marigold text-ivory text-center font-semibold px-5 py-2.5' href="contact.html">Get early access</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-bg border-b border-teal/10">
+  <div class="max-w-4xl mx-auto px-6 pt-20 pb-16 md:pt-24 md:pb-20 text-center">
+    <p class="eyebrow text-marigold reveal in">What you get</p>
+    <h1 class="font-serif text-5xl md:text-6xl text-teal mt-4 leading-[1.05] reveal in">Everything your health needs, woven into one plan.</h1>
+    <p class="mt-6 text-ink/70 text-lg max-w-2xl mx-auto leading-relaxed reveal in">Each part of Anvayya is built around your real biology and talks to every other part — so the whole thing moves you forward together, not in pieces.</p>
+  </div>
+</section>
+
+<!-- ============ OFFERINGS DETAIL ============ -->
+<section class="bg-ivory">
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 space-y-6">
+
+    <!-- 1 report -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6.5l-5.5 9A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8.5V2"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">Understand your body</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Your gut &amp; metabolic report</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">A simple at-home sample kit gives you a clear, readable picture of what's actually happening inside you — your gut balance, how your metabolism is running, and the early signals you'd otherwise never feel. For the first time, you understand your own body instead of guessing at it.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">At-home sample kit</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Gut &amp; metabolism insights</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Early, easy-to-read signals</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2 nutritionist plan -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.5-1.5 3.5M12 2a4 4 0 0 0-4 4c0 3 4 4 4 8 0 2-2 4-2 4M16 6c0 3-4 4-4 8"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">A plan that's only yours</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Your nutritionist-led plan</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">A real, qualified nutritionist reads your report and writes a plan built around your biology — what to eat, how to move, and what to change first. They're assigned to you, they know your numbers, and they stay with you. This is human guidance, not a generic PDF you read once and forget.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">A real human expert</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Built on your report</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Ongoing check-ins</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 food -->
+
+    <!-- 3b supplements -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5"/><path d="M12 8.5v7"/><circle cx="7" cy="12" r="0.9" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="0.9" fill="currentColor" stroke="none"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">Made for your body</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Supplements built from your report</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">Your formulation starts from your own report, not from a shelf. Off-the-shelf supplements are built for an average nobody actually is. Yours is built from what your gut and metabolic report shows — the actives your results point to, at the levels they point to, and nothing you don't need. When you re-test, it's rebuilt around the new results.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">Built from your own report</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Reviewed by your nutritionist</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Updated when you re-test</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Delivered monthly</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M6 11v8M18 11v8M4 19h16"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">Nutrition you actually eat</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Food matched to your plan</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">The hardest part of any plan is the doing. So we make it effortless: meals built to your nutritionist's plan, delivered to your door. No counting, no second-guessing what to cook — just food that fits your biology and your day, ready when you are.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">Delivered to your door</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Matched to your plan</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Flexible subscription</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4 fitness -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5M5 5l-2 2 2 2M19 15l2 2-2 2M9 4 7.5 2.5M15 20l1.5 1.5"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">Move with purpose</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Fitness guidance</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">Workouts set to your goal and your report, with a trainer who guides you in the app and on call. Whether you're starting from zero or levelling up, you'll always know what to do next — and why it's right for your body.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">Set to your goal</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">In-app workouts</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Guidance on call</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 progress -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">See it working</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Monthly progress tracking</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">Every month, you see how your body is responding — measured, visible, and honest, not a guess. And when you re-test, your plan adapts to the new you. Progress you can actually see keeps you going.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">Monthly check-ins</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Visible progress</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Plan adapts to you</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 one app -->
+    <div class="card bg-white rounded-3xl border border-teal/10 p-8 md:p-10 grid md:grid-cols-[auto,1fr] gap-6 md:gap-10 items-start reveal">
+      <div class="w-14 h-14 rounded-2xl bg-teal/8 text-teal flex items-center justify-center shrink-0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 5h4M11 19h2"/></svg></div>
+      <div>
+        <p class="eyebrow text-marigold">All in one place</p>
+        <h2 class="font-serif text-3xl md:text-4xl text-teal mt-2">Everything in one app</h2>
+        <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">Your report, your plan, your meals, your coach and your progress — all in a single app that you actually understand. No more juggling five services that never talk to each other. One place, working for you.</p>
+        <ul class="mt-4 flex flex-wrap gap-2 text-xs text-teal/80">
+          <li class="rounded-full bg-teal/8 px-3 py-1">One simple app</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Everything connected</li>
+          <li class="rounded-full bg-teal/8 px-3 py-1">Always with you</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TRANSFORM FLAGSHIP ============ -->
+<section id="transform" class="bg-teal text-ivory">
+  <div class="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
+    <div class="reveal">
+      <p class="eyebrow text-marigold">The flagship membership</p>
+      <h2 class="font-serif text-5xl md:text-6xl mt-4 leading-none">Transform</h2>
+      <p class="mt-5 text-ivory/75 max-w-2xl mx-auto leading-relaxed">One membership that brings it all together into a single, continuous year of progress — your report, your weekly nutritionist, your food plan, your trainer and your monthly tracking, all woven around your biology and improving as you do.</p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto reveal">
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6">
+        <p class="font-serif text-marigold text-xl">Your report</p>
+        <p class="mt-1 text-xs text-ivory/60">+ regular re-tests</p>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6">
+        <p class="font-serif text-marigold text-xl">Weekly nutritionist</p>
+        <p class="mt-1 text-xs text-ivory/60">human, assigned to you</p>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6">
+        <p class="font-serif text-marigold text-xl">Food · trainer · tracking</p>
+        <p class="mt-1 text-xs text-ivory/60">working together</p>
+      </div>
+    </div>
+
+    <div class="mt-12 inline-flex flex-col items-center reveal">
+      <span class="inline-block rounded-full bg-marigold/20 text-marigold text-xs font-semibold px-4 py-1.5 tracking-wide">LAUNCHING SOON</span>
+      <a class='mt-5 rounded-full bg-marigold text-ivory font-semibold px-8 py-3.5 hover:bg-marigold/90 transition shadow-md' href="contact.html">Join the waitlist</a>
+      <p class="mt-3 text-xs text-ivory/50">Membership details announced at launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-tealdeep text-ivory/70">
+  <div class="max-w-6xl mx-auto px-6 py-14">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="flex flex-col items-center leading-none">
+            <span class="font-deva text-ivory text-3xl leading-none -mb-1">अ</span>
+            <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#FBF6EE" stroke-width="3" stroke-linecap="round"/>
+              <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="font-serif text-ivory text-2xl font-semibold">Anvayya</span>
+        </div>
+        <p class="mt-3 font-serif italic text-marigold">Your Gut, Our Guide</p>
+        <p class="mt-1 text-sm text-ivory/55">Built on your biology.</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a class='hover:text-marigold transition' href="index.html">Home</a></li>
+          <li><a class='hover:text-marigold transition' href="offerings.html">Offerings</a></li>
+          <li><a class='hover:text-marigold transition' href="plans.html">Plans</a></li>
+          <li><a class='hover:text-marigold transition' href="about.html">About</a></li>
+          <li><a class='hover:text-marigold transition' href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-sm space-y-1.5">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Get in touch</p>
+        <p><a href="mailto:hello@anvayya.in" class="hover:text-marigold transition">hello@anvayya.in</a></p>
+        <p><a href="index.html" class="hover:text-marigold transition">anvayya.in</a></p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-ivory/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ivory/40">
+      <p>© Anvayya Healthcare Pvt Ltd</p>
+      <p class="italic">Draft preview — content &amp; branding placeholder.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle=document.getElementById('navToggle'), mobileNav=document.getElementById('mobileNav');
+  if(navToggle){ navToggle.addEventListener('click',()=>mobileNav.classList.toggle('open')); }
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plans — Anvayya</title>
+<meta name="description" content="How joining Anvayya works, what's included in the Transform membership, your four-week journey, and answers to common questions. Launching soon — join the waitlist." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { teal:'#1F4F4A', tealdeep:'#173B37', marigold:'#D88B3A', ivory:'#FBF6EE', ink:'#1A1A18' },
+      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], deva:['Tiro Devanagari Sanskrit','serif'], sans:['Inter','system-ui','sans-serif'] },
+    }}
+  }
+</script>
+<style>
+  html,body{ background:#FBF6EE; color:#1A1A18; -webkit-font-smoothing:antialiased; }
+  body{ font-family:'Inter',system-ui,sans-serif; }
+  .font-deva{ font-family:'Tiro Devanagari Sanskrit',serif; }
+  ::selection{ background:#D88B3A; color:#FBF6EE; }
+  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+  .card{ transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 22px 48px -28px rgba(23,59,55,.45); }
+  .step-line::before{ content:''; position:absolute; left:1.35rem; top:3rem; bottom:-1.25rem; width:2px; background:linear-gradient(#1F4F4A55,#1F4F4A11); }
+  @media(min-width:768px){ .step-line::before{ display:none; } }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; height:1.5px; width:0; background:#D88B3A; transition:width .3s ease; }
+  .nav-link:hover::after, .nav-link.active::after{ width:100%; }
+  .nav-link.active{ color:#1F4F4A; }
+  .grain{ position:fixed; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:multiply; z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .mobile-nav{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .mobile-nav.open{ max-height:420px; }
+  .page-bg{ background:
+      radial-gradient(1000px 460px at 82% -10%, rgba(216,139,58,.09), transparent 60%),
+      radial-gradient(800px 500px at 5% 108%, rgba(31,79,74,.07), transparent 60%), #FBF6EE; }
+  details > summary{ list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker{ display:none; }
+  details[open] .faq-icon{ transform:rotate(45deg); }
+</style>
+</head>
+<body class="antialiased">
+<div class="grain"></div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header id="top" class="sticky top-0 z-40 backdrop-blur-md bg-ivory/85 border-b border-teal/10">
+  <div class="max-w-6xl mx-auto px-6 h-[68px] flex items-center justify-between">
+    <a class='flex items-center gap-2.5 group' href="index.html">
+      <span class="flex flex-col items-center leading-none">
+        <span class="font-deva text-teal text-3xl leading-none -mb-1">अ</span>
+        <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#1F4F4A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="font-serif text-teal text-2xl font-semibold tracking-tight">Anvayya</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[.83rem] font-medium text-teal/80">
+      <a class='nav-link' href="index.html">Home</a>
+      <a class='nav-link' href="offerings.html">Offerings</a>
+      <a class='nav-link active' href="plans.html">Plans</a>
+      <a class='nav-link' href="about.html">About</a>
+      <a class='nav-link' href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a class='hidden sm:inline-block rounded-full bg-marigold text-ivory text-[.82rem] font-semibold px-5 py-2.5 hover:bg-marigold/90 transition shadow-sm' href="contact.html">Get early access</a>
+      <button id="navToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-teal" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav md:hidden bg-ivory/95 backdrop-blur-md border-t border-teal/10">
+    <nav class="px-6 py-4 flex flex-col gap-4 text-sm font-medium text-teal/85">
+      <a href="index.html">Home</a>
+      <a href="offerings.html">Offerings</a>
+      <a class='text-teal font-semibold' href="plans.html">Plans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class='rounded-full bg-marigold text-ivory text-center font-semibold px-5 py-2.5' href="contact.html">Get early access</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-bg border-b border-teal/10">
+  <div class="max-w-4xl mx-auto px-6 pt-20 pb-16 md:pt-24 md:pb-20 text-center">
+    <p class="eyebrow text-marigold reveal in">Get started</p>
+    <h1 class="font-serif text-5xl md:text-6xl text-teal mt-4 leading-[1.05] reveal in">Your journey to a plan built on you.</h1>
+    <p class="mt-6 text-ink/70 text-lg max-w-2xl mx-auto leading-relaxed reveal in">Joining is simple. Here's how it works, what you get with our flagship Transform membership, and what your first four weeks look like.</p>
+    <div class="mt-8 inline-flex flex-col items-center reveal in">
+      <span class="inline-block rounded-full bg-marigold/15 text-marigold text-xs font-semibold px-4 py-1.5 tracking-wide">LAUNCHING SOON</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW JOINING WORKS ============ -->
+<section class="bg-ivory">
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow text-marigold">How joining works</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-teal mt-3 leading-tight">Three easy steps to begin.</h2>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="card bg-white rounded-2xl border border-teal/10 p-7 reveal">
+        <span class="font-serif text-marigold text-3xl">01</span>
+        <h3 class="font-serif text-2xl text-teal mt-2">Join the waitlist</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">Share a few details and we'll reach out as we open in your city. No payment, no pressure.</p>
+      </div>
+      <div class="card bg-white rounded-2xl border border-teal/10 p-7 reveal">
+        <span class="font-serif text-marigold text-3xl">02</span>
+        <h3 class="font-serif text-2xl text-teal mt-2">Take your test</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">A simple at-home sample kit comes to you. Send it back, and we read your gut and metabolic health.</p>
+      </div>
+      <div class="card bg-white rounded-2xl border border-teal/10 p-7 reveal">
+        <span class="font-serif text-marigold text-3xl">03</span>
+        <h3 class="font-serif text-2xl text-teal mt-2">Start your plan</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">Your nutritionist builds your plan, your food and workouts begin, and you're on your way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORM INCLUDES ============ -->
+<section class="bg-teal text-ivory">
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-24">
+    <div class="text-center reveal">
+      <p class="eyebrow text-marigold">The flagship membership</p>
+      <h2 class="font-serif text-5xl md:text-6xl mt-4 leading-none">Transform</h2>
+      <p class="mt-5 text-ivory/75 max-w-2xl mx-auto leading-relaxed">One year, everything woven together — built on your biology and improving as you do.</p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto reveal">
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Your health report</span><span class="block text-xs text-ivory/60 mt-0.5">plus regular re-tests</span></span>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Weekly nutritionist</span><span class="block text-xs text-ivory/60 mt-0.5">human, assigned to you</span></span>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Food matched to your plan</span><span class="block text-xs text-ivory/60 mt-0.5">delivered to your door</span></span>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Fitness guidance</span><span class="block text-xs text-ivory/60 mt-0.5">trainer set to your goal</span></span>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Monthly progress tracking</span><span class="block text-xs text-ivory/60 mt-0.5">see it working</span></span>
+      </div>
+      <div class="rounded-2xl bg-ivory/5 border border-ivory/10 p-6 flex items-start gap-3">
+        <span class="text-marigold mt-0.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="block font-serif text-lg text-ivory">Everything in one app</span><span class="block text-xs text-ivory/60 mt-0.5">all connected, always with you</span></span>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <span class="inline-block rounded-full bg-marigold/20 text-marigold text-xs font-semibold px-4 py-1.5 tracking-wide">LAUNCHING SOON — JOIN THE WAITLIST</span>
+      <div class="mt-5"><a class='rounded-full bg-marigold text-ivory font-semibold px-8 py-3.5 hover:bg-marigold/90 transition shadow-md inline-block' href="contact.html">Join the waitlist</a></div>
+      <p class="mt-3 text-xs text-ivory/50">Membership details announced at launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4-WEEK JOURNEY ============ -->
+<section class="bg-ivory border-t border-teal/10">
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow text-marigold">Your first four weeks</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-teal mt-3 leading-tight">From your first test to your first results.</h2>
+      <p class="mt-5 text-ink/70 leading-relaxed">Here's how your journey unfolds — one connected plan, coming together around you.</p>
+    </div>
+    <div class="mt-12 grid md:grid-cols-4 gap-8 md:gap-6">
+      <div class="step-line relative pl-12 md:pl-0 reveal">
+        <div class="absolute left-0 top-0 md:static w-11 h-11 rounded-full bg-teal text-ivory font-serif text-lg flex items-center justify-center md:mb-5">1</div>
+        <h3 class="font-serif text-2xl text-teal">Test</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">You join and your at-home sample kit arrives. Send it back, and we capture your starting picture.</p>
+      </div>
+      <div class="step-line relative pl-12 md:pl-0 reveal">
+        <div class="absolute left-0 top-0 md:static w-11 h-11 rounded-full bg-teal text-ivory font-serif text-lg flex items-center justify-center md:mb-5">2</div>
+        <h3 class="font-serif text-2xl text-teal">Your plan</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">Your nutritionist reads your results and writes your plan. Your matched meals begin.</p>
+      </div>
+      <div class="step-line relative pl-12 md:pl-0 reveal">
+        <div class="absolute left-0 top-0 md:static w-11 h-11 rounded-full bg-teal text-ivory font-serif text-lg flex items-center justify-center md:mb-5">3</div>
+        <h3 class="font-serif text-2xl text-teal">Eat &amp; train</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">Your trainer is set to your goal, your workouts go live, and you settle into the rhythm.</p>
+      </div>
+      <div class="relative pl-12 md:pl-0 reveal">
+        <div class="absolute left-0 top-0 md:static w-11 h-11 rounded-full bg-marigold text-ivory font-serif text-lg flex items-center justify-center md:mb-5">4</div>
+        <h3 class="font-serif text-2xl text-teal">See your results</h3>
+        <p class="mt-2 text-sm text-ink/65 leading-relaxed">Your first progress check and a one-to-one nutritionist review. You can see it working.</p>
+      </div>
+    </div>
+    <div class="mt-12 rounded-2xl bg-teal/5 border border-teal/10 p-6 md:p-7 reveal">
+      <p class="text-sm md:text-base text-ink/75 leading-relaxed"><span class="font-serif text-teal text-lg">From here on —</span> monthly progress checks, regular nutritionist and trainer touchpoints, meals that keep coming, and re-tests that keep your plan tuned to the new you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="bg-ivory border-t border-teal/10">
+  <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+    <div class="text-center reveal">
+      <p class="eyebrow text-marigold">Good to know</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-teal mt-3 leading-tight">Your questions, answered.</h2>
+    </div>
+    <div class="mt-10 space-y-3">
+      <details class="card bg-white rounded-2xl border border-teal/10 p-6 reveal" open>
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-serif text-xl text-teal">Do I need to visit a clinic?</span>
+          <span class="faq-icon text-marigold transition-transform shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <p class="mt-3 text-sm text-ink/65 leading-relaxed">No. Your sample kit comes to your home and goes back by post. Your nutritionist, plan, food and tracking all live in the app — so it fits around your life, not the other way round.</p>
+      </details>
+      <details class="card bg-white rounded-2xl border border-teal/10 p-6 reveal">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-serif text-xl text-teal">Is my plan really personalised?</span>
+          <span class="faq-icon text-marigold transition-transform shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <p class="mt-3 text-sm text-ink/65 leading-relaxed">Yes. Your plan is built from your own report by a real nutritionist — not pulled off a shelf. As you re-test, it adapts to your new numbers, so it keeps fitting you.</p>
+      </details>
+      <details class="card bg-white rounded-2xl border border-teal/10 p-6 reveal">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-serif text-xl text-teal">Will I speak to a real person?</span>
+          <span class="faq-icon text-marigold transition-transform shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <p class="mt-3 text-sm text-ink/65 leading-relaxed">Always. A qualified nutritionist is assigned to you and stays with you — reviewing your progress, answering your questions, and adjusting your plan as you go.</p>
+      </details>
+      <details class="card bg-white rounded-2xl border border-teal/10 p-6 reveal">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-serif text-xl text-teal">How soon will I see results?</span>
+          <span class="faq-icon text-marigold transition-transform shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <p class="mt-3 text-sm text-ink/65 leading-relaxed">Many people start to feel a difference within the first few weeks, and your monthly progress checks make it visible. Lasting change builds over time — and your plan keeps improving with you.</p>
+      </details>
+      <details class="card bg-white rounded-2xl border border-teal/10 p-6 reveal">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-serif text-xl text-teal">When does Anvayya launch?</span>
+          <span class="faq-icon text-marigold transition-transform shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <p class="mt-3 text-sm text-ink/65 leading-relaxed">We're opening soon, city by city. Join the waitlist and we'll reach out the moment we're live near you — early members get first access.</p>
+      </details>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a class='rounded-full bg-teal text-ivory font-semibold px-8 py-3.5 hover:bg-tealdeep transition shadow-md inline-block' href="contact.html">Get early access</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-tealdeep text-ivory/70">
+  <div class="max-w-6xl mx-auto px-6 py-14">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="flex flex-col items-center leading-none">
+            <span class="font-deva text-ivory text-3xl leading-none -mb-1">अ</span>
+            <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#FBF6EE" stroke-width="3" stroke-linecap="round"/>
+              <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="font-serif text-ivory text-2xl font-semibold">Anvayya</span>
+        </div>
+        <p class="mt-3 font-serif italic text-marigold">Your Gut, Our Guide</p>
+        <p class="mt-1 text-sm text-ivory/55">Built on your biology.</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a class='hover:text-marigold transition' href="index.html">Home</a></li>
+          <li><a class='hover:text-marigold transition' href="offerings.html">Offerings</a></li>
+          <li><a class='hover:text-marigold transition' href="plans.html">Plans</a></li>
+          <li><a class='hover:text-marigold transition' href="about.html">About</a></li>
+          <li><a class='hover:text-marigold transition' href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-sm space-y-1.5">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Get in touch</p>
+        <p><a href="mailto:hello@anvayya.in" class="hover:text-marigold transition">hello@anvayya.in</a></p>
+        <p><a href="index.html" class="hover:text-marigold transition">anvayya.in</a></p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-ivory/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ivory/40">
+      <p>© Anvayya Healthcare Pvt Ltd</p>
+      <p class="italic">Draft preview — content &amp; branding placeholder.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle=document.getElementById('navToggle'), mobileNav=document.getElementById('mobileNav');
+  if(navToggle){ navToggle.addEventListener('click',()=>mobileNav.classList.toggle('open')); }
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

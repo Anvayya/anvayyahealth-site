@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Anvayya</title>
+<meta name="description" content="Get in touch with Anvayya — email hello@anvayya.in, WhatsApp us, or request early access. We'll reach out the moment we open in your city." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { teal:'#1F4F4A', tealdeep:'#173B37', marigold:'#D88B3A', ivory:'#FBF6EE', ink:'#1A1A18' },
+      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], deva:['Tiro Devanagari Sanskrit','serif'], sans:['Inter','system-ui','sans-serif'] },
+    }}
+  }
+</script>
+<style>
+  html,body{ background:#FBF6EE; color:#1A1A18; -webkit-font-smoothing:antialiased; }
+  body{ font-family:'Inter',system-ui,sans-serif; }
+  .font-deva{ font-family:'Tiro Devanagari Sanskrit',serif; }
+  ::selection{ background:#D88B3A; color:#FBF6EE; }
+  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+  .card{ transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 22px 48px -28px rgba(23,59,55,.45); }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; height:1.5px; width:0; background:#D88B3A; transition:width .3s ease; }
+  .nav-link:hover::after, .nav-link.active::after{ width:100%; }
+  .nav-link.active{ color:#1F4F4A; }
+  .grain{ position:fixed; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:multiply; z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .mobile-nav{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .mobile-nav.open{ max-height:420px; }
+</style>
+</head>
+<body class="antialiased">
+<div class="grain"></div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header id="top" class="sticky top-0 z-40 backdrop-blur-md bg-ivory/85 border-b border-teal/10">
+  <div class="max-w-6xl mx-auto px-6 h-[68px] flex items-center justify-between">
+    <a class='flex items-center gap-2.5 group' href="index.html">
+      <span class="flex flex-col items-center leading-none">
+        <span class="font-deva text-teal text-3xl leading-none -mb-1">अ</span>
+        <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#1F4F4A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="font-serif text-teal text-2xl font-semibold tracking-tight">Anvayya</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[.83rem] font-medium text-teal/80">
+      <a class='nav-link' href="index.html">Home</a>
+      <a class='nav-link' href="offerings.html">Offerings</a>
+      <a class='nav-link' href="plans.html">Plans</a>
+      <a class='nav-link' href="about.html">About</a>
+      <a class='nav-link active' href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#form" class="hidden sm:inline-block rounded-full bg-marigold text-ivory text-[.82rem] font-semibold px-5 py-2.5 hover:bg-marigold/90 transition shadow-sm">Get early access</a>
+      <button id="navToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-teal" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav md:hidden bg-ivory/95 backdrop-blur-md border-t border-teal/10">
+    <nav class="px-6 py-4 flex flex-col gap-4 text-sm font-medium text-teal/85">
+      <a href="index.html">Home</a>
+      <a href="offerings.html">Offerings</a>
+      <a href="plans.html">Plans</a>
+      <a href="about.html">About</a>
+      <a class='text-teal font-semibold' href="contact.html">Contact</a>
+      <a href="#form" class="rounded-full bg-marigold text-ivory text-center font-semibold px-5 py-2.5">Get early access</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ CONTACT ============ -->
+<section class="bg-teal text-ivory relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+    <!-- left: intro + channels -->
+    <div class="reveal in">
+      <p class="eyebrow text-marigold">Get in touch</p>
+      <h1 class="font-serif text-5xl md:text-6xl mt-4 leading-[1.05]">We'd love to hear from you.</h1>
+      <p class="mt-6 text-ivory/75 leading-relaxed max-w-md">Curious about your gut and metabolism, or want to be first in line when we open in your city? Reach out — a real person will get back to you.</p>
+
+      <div class="mt-10 space-y-4">
+        <a href="mailto:hello@anvayya.in" class="flex items-center gap-4 rounded-2xl bg-ivory/5 border border-ivory/10 p-5 hover:bg-ivory/10 transition">
+          <span class="w-11 h-11 rounded-xl bg-marigold/20 text-marigold flex items-center justify-center shrink-0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span><span class="block text-xs text-ivory/50">Email us</span><span class="block font-serif text-xl text-ivory">hello@anvayya.in</span></span>
+        </a>
+        <a href="#" class="flex items-center gap-4 rounded-2xl bg-ivory/5 border border-ivory/10 p-5 hover:bg-ivory/10 transition">
+          <span class="w-11 h-11 rounded-xl bg-marigold/20 text-marigold flex items-center justify-center shrink-0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg></span>
+          <span><span class="block text-xs text-ivory/50">WhatsApp us</span><span class="block font-serif text-xl text-ivory">+91 00000 00000 <span class="text-xs italic text-ivory/40 not-italic">[placeholder]</span></span></span>
+        </a>
+        <div class="flex items-center gap-4 rounded-2xl bg-ivory/5 border border-ivory/10 p-5">
+          <span class="w-11 h-11 rounded-xl bg-marigold/20 text-marigold flex items-center justify-center shrink-0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><span class="block text-xs text-ivory/50">Find us</span><span class="block font-serif text-xl text-ivory">India <span class="text-xs italic text-ivory/40 not-italic">[location placeholder]</span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- right: form -->
+    <div id="form" class="rounded-3xl bg-ivory text-ink p-8 md:p-10 shadow-2xl reveal in scroll-mt-24">
+      <h2 class="font-serif text-3xl text-teal">Request early access</h2>
+      <p class="mt-2 text-sm text-ink/60">Tell us a little about you and we'll be in touch as we open in your city.</p>
+
+      <form id="accessForm" class="mt-7 grid gap-4" novalidate>
+        <div>
+          <label class="block text-xs text-ink/55 mb-1.5" for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" required placeholder="Your name"
+            class="w-full rounded-xl bg-teal/5 border border-teal/15 px-4 py-3 text-ink placeholder-ink/35 focus:outline-none focus:border-marigold focus:bg-marigold/5 transition" />
+        </div>
+        <div>
+          <label class="block text-xs text-ink/55 mb-1.5" for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required placeholder="you@email.com"
+            class="w-full rounded-xl bg-teal/5 border border-teal/15 px-4 py-3 text-ink placeholder-ink/35 focus:outline-none focus:border-marigold focus:bg-marigold/5 transition" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-ink/55 mb-1.5" for="f-wa">WhatsApp</label>
+            <input id="f-wa" name="whatsapp" type="tel" required placeholder="+91…"
+              class="w-full rounded-xl bg-teal/5 border border-teal/15 px-4 py-3 text-ink placeholder-ink/35 focus:outline-none focus:border-marigold focus:bg-marigold/5 transition" />
+          </div>
+          <div>
+            <label class="block text-xs text-ink/55 mb-1.5" for="f-city">City</label>
+            <input id="f-city" name="city" type="text" required placeholder="Mumbai, Delhi…"
+              class="w-full rounded-xl bg-teal/5 border border-teal/15 px-4 py-3 text-ink placeholder-ink/35 focus:outline-none focus:border-marigold focus:bg-marigold/5 transition" />
+          </div>
+        </div>
+        <button type="submit" class="mt-2 rounded-full bg-teal text-ivory font-semibold px-7 py-3.5 hover:bg-tealdeep transition shadow-md">Request early access</button>
+        <p class="text-xs text-ink/45 text-center">Your details stay private. <span class="italic">Demo form — not yet connected.</span></p>
+      </form>
+
+      <div id="accessSuccess" class="hidden text-center py-6">
+        <div class="w-14 h-14 mx-auto rounded-full bg-marigold/15 text-marigold flex items-center justify-center mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 class="font-serif text-3xl text-teal">You're on the list.</h3>
+        <p class="mt-2 text-ink/65 leading-relaxed max-w-sm mx-auto">Thank you — we'll reach out the moment Anvayya opens in your city. Welcome aboard.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-tealdeep text-ivory/70">
+  <div class="max-w-6xl mx-auto px-6 py-14">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="flex flex-col items-center leading-none">
+            <span class="font-deva text-ivory text-3xl leading-none -mb-1">अ</span>
+            <svg viewBox="0 0 120 24" width="44" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 12 C16 2,28 2,40 12 S64 22,76 12 S100 2,116 12" stroke="#FBF6EE" stroke-width="3" stroke-linecap="round"/>
+              <path d="M4 12 C16 22,28 22,40 12 S64 2,76 12 S100 22,116 12" stroke="#D88B3A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="font-serif text-ivory text-2xl font-semibold">Anvayya</span>
+        </div>
+        <p class="mt-3 font-serif italic text-marigold">Your Gut, Our Guide</p>
+        <p class="mt-1 text-sm text-ivory/55">Built on your biology.</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a class='hover:text-marigold transition' href="index.html">Home</a></li>
+          <li><a class='hover:text-marigold transition' href="offerings.html">Offerings</a></li>
+          <li><a class='hover:text-marigold transition' href="plans.html">Plans</a></li>
+          <li><a class='hover:text-marigold transition' href="about.html">About</a></li>
+          <li><a class='hover:text-marigold transition' href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-sm space-y-1.5">
+        <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Get in touch</p>
+        <p><a href="mailto:hello@anvayya.in" class="hover:text-marigold transition">hello@anvayya.in</a></p>
+        <p><a href="index.html" class="hover:text-marigold transition">anvayya.in</a></p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-ivory/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ivory/40">
+      <p>© Anvayya Healthcare Pvt Ltd</p>
+      <p class="italic">Draft preview — content &amp; branding placeholder.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle=document.getElementById('navToggle'), mobileNav=document.getElementById('mobileNav');
+  if(navToggle){ navToggle.addEventListener('click',()=>mobileNav.classList.toggle('open')); }
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+
+  // early-access form — demo only
+  const form=document.getElementById('accessForm'), success=document.getElementById('accessSuccess');
+  form.addEventListener('submit',(ev)=>{
+    ev.preventDefault();
+    const reqd=['name','email','whatsapp','city']; let ok=true;
+    reqd.forEach(n=>{ const f=form.elements[n]; if(!f.value.trim()){ ok=false; f.classList.add('border-marigold'); } });
+    if(!ok) return;
+    // TODO connect backend — POST { name, email, whatsapp, city } to waitlist endpoint
+    const payload=Object.fromEntries(new FormData(form).entries());
+    console.log('waitlist signup (demo, not sent):', payload);
+    form.classList.add('hidden');
+    success.classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
