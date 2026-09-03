@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#1F4F4A"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Georgia, 'Tiro Devanagari Sanskrit', serif" font-size="34" fill="#FBF6EE">अ</text>
+  <path d="M14 47 C22 41,30 41,38 47 S52 53,58 47" stroke="#D88B3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

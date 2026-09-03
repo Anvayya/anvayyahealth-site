@@ -5,45 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Anvayya — Built on your biology.</title>
 <meta name="description" content="Understand your gut and metabolism, get a plan built on your real biology with a human nutritionist beside you, and see results in weeks. Built on your biology." />
+<link rel="canonical" href="https://anvayya.in/" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1F4F4A">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anvayya">
+<meta property="og:title" content="Anvayya — Built on your biology.">
+<meta property="og:description" content="Understand your gut and metabolism, get a plan built on your real biology with a human nutritionist beside you, and see results in weeks." />
+<meta property="og:url" content="https://anvayya.in/">
+<meta property="og:image" content="https://anvayya.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anvayya — Built on your biology.">
+<meta name="twitter:description" content="Understand your gut and metabolism, get a plan built on your real biology with a human nutritionist beside you, and see results in weeks." />
+<meta name="twitter:image" content="https://anvayya.in/assets/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: { teal:'#1F4F4A', tealdeep:'#173B37', marigold:'#D88B3A', ivory:'#FBF6EE', ink:'#1A1A18' },
-      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], deva:['Tiro Devanagari Sanskrit','serif'], sans:['Inter','system-ui','sans-serif'] },
-    }}
-  }
-</script>
-<style>
-  html,body{ background:#FBF6EE; color:#1A1A18; -webkit-font-smoothing:antialiased; }
-  body{ font-family:'Inter',system-ui,sans-serif; }
-  .font-deva{ font-family:'Tiro Devanagari Sanskrit',serif; }
-  ::selection{ background:#D88B3A; color:#FBF6EE; }
-  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
-  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
-  .reveal.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
-  .hero-bg{ background:
-      radial-gradient(1100px 520px at 78% -8%, rgba(216,139,58,.10), transparent 60%),
-      radial-gradient(900px 600px at 8% 110%, rgba(31,79,74,.08), transparent 60%), #FBF6EE; }
-  .card{ transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease; }
-  .card:hover{ transform:translateY(-4px); box-shadow:0 22px 48px -28px rgba(23,59,55,.45); }
-  .step-line::before{ content:''; position:absolute; left:1.35rem; top:3rem; bottom:-1.25rem; width:2px; background:linear-gradient(#1F4F4A55,#1F4F4A11); }
-  @media(min-width:768px){ .step-line::before{ display:none; } }
-  .nav-link{ position:relative; }
-  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; height:1.5px; width:0; background:#D88B3A; transition:width .3s ease; }
-  .nav-link:hover::after, .nav-link.active::after{ width:100%; }
-  .nav-link.active{ color:#1F4F4A; }
-  .grain{ position:fixed; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:multiply; z-index:1;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-  .mobile-nav{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
-  .mobile-nav.open{ max-height:420px; }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="antialiased">
 <div class="grain"></div>
@@ -70,7 +54,7 @@
     </nav>
     <div class="flex items-center gap-3">
       <a class='hidden sm:inline-block rounded-full bg-marigold text-ivory text-[.82rem] font-semibold px-5 py-2.5 hover:bg-marigold/90 transition shadow-sm' href="contact.html">Get early access</a>
-      <button id="navToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-teal" aria-label="Menu">
+      <button id="navToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-teal" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
@@ -280,24 +264,18 @@
       </div>
       <div class="text-sm space-y-1.5">
         <p class="text-ivory/45 uppercase tracking-wider text-xs mb-3">Get in touch</p>
-        <p><a href="mailto:hello@anvayya.in" class="hover:text-marigold transition">hello@anvayya.in</a></p>
+        <p><a href="mailto:info@anvayya.in" class="hover:text-marigold transition">info@anvayya.in</a></p>
         <p><a href="index.html" class="hover:text-marigold transition">anvayya.in</a></p>
+        <p class="text-ivory/55">A-302 Privilon, Bopal-Ambli Rd,<br>Behind Iskcon, Ahmedabad,<br>Gujarat, India</p>
       </div>
     </div>
     <div class="mt-10 pt-6 border-t border-ivory/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ivory/40">
-      <p>© Anvayya Healthcare</p>
-      <p class="italic">Draft preview — content &amp; branding placeholder.</p>
+      <p>© <span id="year">2026</span> Anvayya Healthcare. All rights reserved.</p>
+      <p class="flex items-center gap-4"><a class="hover:text-marigold transition" href="privacy.html">Privacy Policy</a><a class="hover:text-marigold transition" href="terms.html">Terms of Service</a></p>
     </div>
   </div>
 </footer>
 
-<script>
-  // mobile nav
-  const navToggle=document.getElementById('navToggle'), mobileNav=document.getElementById('mobileNav');
-  if(navToggle){ navToggle.addEventListener('click',()=>mobileNav.classList.toggle('open')); }
-  // reveal-on-scroll
-  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
-</script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

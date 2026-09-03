@@ -1,0 +1,13 @@
+{
+  "name": "Anvayya",
+  "short_name": "Anvayya",
+  "description": "Your Gut, Our Guide — built on your biology.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF6EE",
+  "theme_color": "#1F4F4A",
+  "icons": [
+    { "src": "assets/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
