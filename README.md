@@ -45,7 +45,11 @@ The "Request early access" form on `contact.html` is a [Netlify Forms](https://d
 
 - Email: `info@anvayya.in`
 - Office: A-302 Privilon, Bopal-Ambli Rd, Behind Iskcon, Ahmedabad, Gujarat, India
-- WhatsApp: placeholder — update the number in `contact.html`'s "Get in touch" section (and the `wa.me` link right above it) once a real number is assigned.
+- WhatsApp: `+91 8320 6249 41` (see `contact.html`'s "Get in touch" section and the `wa.me` link there).
+
+## Cookie consent
+
+`assets/site.js` injects a small cookie-consent banner (`.cookie-banner*` styles in `src/input.css`) on every page. It sets one first-party cookie (`anvayya_cookie_consent`) once the visitor accepts, valid for 12 months. See `privacy.html` Section 8 for the cookie types disclosed. `tailwind.config.js`'s `content` array includes `./assets/*.js` so Tailwind's build doesn't purge the banner's classes (they only appear in JS-built markup, not in any `.html` file).
 
 ## SEO / sharing
 
